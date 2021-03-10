@@ -1,4 +1,4 @@
-# Random image
+# Favorite image
 
 ## O que é?
 
