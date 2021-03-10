@@ -1,43 +1,66 @@
 // array para armazenar os favoritos
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
+const imgContainer = document.querySelector(".c-image");
+const button = document.querySelector("button");
 //criando o elemento img
 const img = document.createElement("img");
 
-// ao abrir o programa pegar a imagem externa
-async function getExternalImage() {
-  //url: source.unsplash.com/random
-  // buscando img na api
-  const response = await fetch("https://source.unsplash.com/random");
-
-  //criando o elemento img
-  img.setAttribute("src", response.url);
-
-  //colocando o img dentro da div
-  const cImage = document.querySelector(".c-image");
-  cImage.appendChild(img);
-}
-
 //clicar no random, pegar a img externa
-document.querySelector("button").onclick = () => {
+button.onclick = () => {
+  updateImage();
   getExternalImage();
 };
 //clicar na imagem
-document.querySelector(".c-image").onclick = () => {
-  const imgContainer = document.querySelector(".c-image");
-  const imgSrc = document.querySelector(".c-image img").src;
+imgContainer.onclick = () => {
+  updateAll();
+};
 
-  let positionRemove = favorites.indexOf(imgSrc);
+//metodos
+function getState() {
+  const imgSrc = document.querySelector(".c-image img").src;
+  const positionRemove = favorites.indexOf(imgSrc);
+
+  return { imgSrc, positionRemove };
+}
+
+function updateAll() {
+  updateStorage();
+  updateClasses();
+}
+
+function updateStorage() {
+  const { imgSrc, positionRemove } = getState();
+
   if (positionRemove != -1) {
     favorites.splice(positionRemove, 1);
-    imgContainer.classList.remove("fav");
   } else {
     favorites.push(imgSrc);
-    imgContainer.classList.add("fav");
   }
 
   localStorage.setItem("favorites", JSON.stringify(favorites));
-};
+}
 
-//salvar no localstorage ou remover
+function updateClasses() {
+  const { positionRemove } = getState();
+
+  imgContainer.classList.remove("fav");
+
+  if (positionRemove != -1) {
+    imgContainer.classList.add("fav");
+  }
+}
+
+async function updateImage() {
+  await getExternalImage();
+  updateClasses();
+}
+
+async function getExternalImage() {
+  // buscando img na api
+  const response = await fetch("https://source.unsplash.com/random");
+  //criando o elemento img
+  img.setAttribute("src", response.url);
+  //colocando o img dentro da div
+  imgContainer.appendChild(img);
+}
 getExternalImage();
