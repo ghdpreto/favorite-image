@@ -3,7 +3,8 @@
 ## O que é?
 
 Gera uma imagem randomicamente, sendo possivel favoritar a mesma.
-Projeto realizado para estudo de JS
+
+Projeto realizado para estudo de JS.
 
 ## Conteudo utilizado para estudo
 
