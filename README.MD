@@ -11,10 +11,10 @@ Projeto realizado para estudo de JS
 
 ## Desafios
 
-[ ] - Listar todas as imagems favoritadas
+- [ ] - Listar todas as imagems favoritadas
 
-[ ] - Botão para deletar a imagem favoritada
+- [ ] - Botão para deletar a imagem favoritada
 
-[ ] - Botão para remover todas as imagens favoritadas
+- [ ] - Botão para remover todas as imagens favoritadas
 
-[ ] - Busca por tipo de foto "natureza, carro, etc"
+- [ ] - Busca por tipo de foto "natureza, carro, etc"
