@@ -10,6 +10,7 @@ button.onclick = () => {
   updateImage();
   getExternalImage();
 };
+
 //clicar na imagem
 imgContainer.onclick = () => {
   updateAll();
@@ -72,25 +73,31 @@ async function getExternalImage() {
 //exibindo imagens salvas
 function loadFavoriteImage(favorites) {
   const listFavorite = document.querySelector(".c-list");
-  if (favorites.length !== 0) {
-    favorites.forEach((url) => {
+
+  //criando os itens da lista de favoritos
+  for (let i = 0; favorites.length > i; i++) {
+    if (favorites.length !== 0) {
       imgItem = `
-        <div class="c-list__item">
-        <img class="c-list__img" src="${url}" alt="" />
-        <button class="c-button c-button--remove" onclick="removeFavoriteImage()">Remover</button>
-        </div>`;
+          <div class="c-list__item">
+          <img class="c-list__img" src="${favorites[i]}" data-key="${i}" />
+          <button class="c-button c-button--remove" onclick="removeFavoriteImage(${i})" >Remover</button>
+          </div>`;
       listFavorite.innerHTML += imgItem;
-    });
+    }
   }
 }
 
-function removeFavoriteImage() {
-  const { positionRemove } = getState();
-  const infoImg = document.querySelectorAll(".c-list__img");
-  //verificar como remover a imagem do btn selecionado
-  console.log(infoImg);
+//remove favoritos da lista de imagem
+function removeFavoriteImage(index) {
+  const listFavorite = document.querySelector(".c-list");
+
+  favorites.splice(index, 1);
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+  listFavorite.innerHTML = "";
+  loadFavoriteImage(favorites);
 }
 
+//inicia a aplicação
 function init() {
   getExternalImage();
   loadFavoriteImage(favorites);
