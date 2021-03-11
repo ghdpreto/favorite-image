@@ -3,6 +3,7 @@
   --primary: #fd951f;
   --primary-dark: #dd7b0c;
   --white: #f0f0f9;
+  --danger: #b80000;
 }
 
 * {
@@ -14,7 +15,7 @@
 *,
 button,
 input {
-  font-family: sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 body {
@@ -29,7 +30,14 @@ body {
 
 main {
   margin: auto;
+  padding: 2rem 0;
   width: 80vw;
+}
+
+.c-title {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 2rem;
 }
 
 .c-button {
@@ -41,6 +49,7 @@ main {
   text-transform: uppercase;
   font-size: 1.8rem;
   padding: 1.2rem;
+  font-weight: bold;
 
   outline: none;
 
@@ -49,6 +58,16 @@ main {
 
 .c-button:hover {
   background-color: var(--primary-dark);
+}
+
+.c-button--remove {
+  background-color: red;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.c-button--remove:hover {
+  background-color: var(--danger);
 }
 
 .c-image {
@@ -76,4 +95,21 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.c-list {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  gap: 1rem;
+  justify-content: center;
+}
+
+.c-list__item {
+  min-width: 250px;
+}
+
+.c-list__img {
+  width: 100%;
+  height: 250px;
 }
