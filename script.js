@@ -30,14 +30,18 @@ function updateAll() {
 
 function updateStorage() {
   const { imgSrc, positionRemove } = getState();
-
+  const listFavorite = document.querySelector(".c-list");
   if (positionRemove != -1) {
     favorites.splice(positionRemove, 1);
+    listFavorite.innerHTML = "";
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    loadFavoriteImage(favorites);
   } else {
     favorites.push(imgSrc);
+    listFavorite.innerHTML = "";
+    loadFavoriteImage(favorites);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
   }
-
-  localStorage.setItem("favorites", JSON.stringify(favorites));
 }
 
 function updateClasses() {
@@ -64,4 +68,32 @@ async function getExternalImage() {
   //colocando o img dentro da div
   imgContainer.appendChild(img);
 }
-getExternalImage();
+
+//exibindo imagens salvas
+function loadFavoriteImage(favorites) {
+  const listFavorite = document.querySelector(".c-list");
+  if (favorites.length !== 0) {
+    favorites.forEach((url) => {
+      imgItem = `
+        <div class="c-list__item">
+        <img class="c-list__img" src="${url}" alt="" />
+        <button class="c-button c-button--remove" onclick="removeFavoriteImage()">Remover</button>
+        </div>`;
+      listFavorite.innerHTML += imgItem;
+    });
+  }
+}
+
+function removeFavoriteImage() {
+  const { positionRemove } = getState();
+  const infoImg = document.querySelectorAll(".c-list__img");
+  //verificar como remover a imagem do btn selecionado
+  console.log(infoImg);
+}
+
+function init() {
+  getExternalImage();
+  loadFavoriteImage(favorites);
+}
+
+init();
