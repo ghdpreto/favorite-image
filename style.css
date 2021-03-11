@@ -32,22 +32,22 @@ main {
   width: 80vw;
 }
 
-button {
+.c-button {
   width: 100%;
   color: var(--white);
   background-color: var(--primary);
   border: none;
 
   text-transform: uppercase;
-  font-size: 2.4rem;
-  padding: 1.6rem;
+  font-size: 1.8rem;
+  padding: 1.2rem;
 
   outline: none;
 
   transition: 0.2s;
 }
 
-button:hover {
+.c-button:hover {
   background-color: var(--primary-dark);
 }
 
@@ -72,7 +72,7 @@ button:hover {
   content: "\2606";
 }
 
-img {
+.c-image__item {
   width: 100%;
   height: 100%;
   object-fit: cover;

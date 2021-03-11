@@ -1,7 +1,7 @@
 // array para armazenar os favoritos
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 const imgContainer = document.querySelector(".c-image");
-const button = document.querySelector("button");
+const button = document.querySelector(".js-random");
 //criando o elemento img
 const img = document.createElement("img");
 
@@ -60,6 +60,7 @@ async function getExternalImage() {
   const response = await fetch("https://source.unsplash.com/random");
   //criando o elemento img
   img.setAttribute("src", response.url);
+  img.classList.add("c-image__item");
   //colocando o img dentro da div
   imgContainer.appendChild(img);
 }
