@@ -16,6 +16,6 @@ Projeto realizado para estudo de JS.
 
 - [x] - Botão para deletar a imagem favoritada
 
-- [ ] - Botão para remover todas as imagens favoritadas
+- [x] - Botão para remover todas as imagens favoritadas
 
 - [ ] - Busca por tipo de foto "natureza, carro, etc"
