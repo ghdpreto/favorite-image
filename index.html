@@ -9,23 +9,23 @@
       href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main>
       <button class="c-button js-random">Random</button>
       <div class="c-image"></div>
-      <h1 class="c-title">Imagens favoritas</h1>
-      <section class="c-list">
-        <!-- <div class="c-list__item">
-          <img class="c-list__img" src="" alt="" />
-          <button class="c-button c-button--remove">Remover</button>
-        </div>
-        <div class="c-list__item">
-          <img class="c-list__img" src="" alt="" />
-          <button class="c-button c-button--remove">Remover</button>
-        </div> -->
-      </section>
+      <div class="c-title-wrapper">
+        <h1 class="c-title">Imagens favoritas</h1>
+        <a class="c-button c-button--delete-all"
+          >Remover todos <span class="material-icons"> delete_forever </span></a
+        >
+      </div>
+      <section class="c-list"></section>
     </main>
     <script src="./script.js"></script>
   </body>

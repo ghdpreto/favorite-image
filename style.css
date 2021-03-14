@@ -34,9 +34,15 @@ main {
   width: 80vw;
 }
 
+.c-title-wrapper {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
 .c-title {
   text-align: center;
-  margin: 2rem 0;
+  margin: 2rem auto;
   font-size: 2rem;
 }
 
@@ -54,6 +60,7 @@ main {
   outline: none;
 
   transition: 0.2s;
+  cursor: pointer;
 }
 
 .c-button:hover {
@@ -68,6 +75,26 @@ main {
 
 .c-button--remove:hover {
   background-color: var(--danger);
+}
+
+.c-button--delete-all {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: auto;
+  font-size: 1.2rem;
+  text-transform: none;
+  padding: 1rem;
+  background-color: red;
+}
+
+.c-button--delete-all:hover {
+  background-color: var(--danger);
+}
+
+.c-button--delete-all .material-icons {
+  margin-left: 5px;
 }
 
 .c-image {
