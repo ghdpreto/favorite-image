@@ -14,6 +14,7 @@ button.onclick = () => {
   getExternalImage();
 };
 
+//clicar no remover todos
 btnClearAll.onclick = () => {
   clearLocalStorage();
 };
@@ -113,6 +114,8 @@ function removeFavoriteImage(index) {
   listFavorite.innerHTML = "";
   //carrega os novo array
   loadFavoriteImage(favorites);
+  updateClasses();
+  wrapper.classList.remove("c-title-wrapper--hidden");
 
   if (favorites.length == 0) {
     wrapper.classList.add("c-title-wrapper--hidden");
