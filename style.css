@@ -39,6 +39,9 @@ main {
   width: 100%;
   text-align: center;
 }
+.c-title-wrapper--hidden {
+  display: none;
+}
 
 .c-title {
   text-align: center;
