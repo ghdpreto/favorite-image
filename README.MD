@@ -12,7 +12,7 @@ Projeto realizado para estudo de JS.
 
 ## Desafios
 
-- [x] - Listar todas as imagems favoritadas
+- [x] - Listar todas as imagens favoritadas
 
 - [x] - Botão para deletar a imagem favoritada
 
