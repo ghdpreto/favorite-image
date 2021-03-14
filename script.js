@@ -2,6 +2,8 @@
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 const imgContainer = document.querySelector(".c-image");
 const button = document.querySelector(".js-random");
+const btnClearAll = document.querySelector(".c-button--delete-all");
+
 //criando o elemento img
 const img = document.createElement("img");
 
@@ -9,6 +11,10 @@ const img = document.createElement("img");
 button.onclick = () => {
   updateImage();
   getExternalImage();
+};
+
+btnClearAll.onclick = () => {
+  clearLocalStorage();
 };
 
 //clicar na imagem
@@ -95,6 +101,11 @@ function removeFavoriteImage(index) {
   localStorage.setItem("favorites", JSON.stringify(favorites));
   listFavorite.innerHTML = "";
   loadFavoriteImage(favorites);
+}
+
+function clearLocalStorage() {
+  localStorage.clear();
+  updateStorage();
 }
 
 //inicia a aplicação
